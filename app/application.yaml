@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testpod-1
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: ops
+  source:
+    repoURL: https://github.com/kaguptas/argo-test
+    targetRevision: HEAD
+    path: app/appsource
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kabirg
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m

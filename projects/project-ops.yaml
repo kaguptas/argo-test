@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: ops
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Ops Project
+  sourceRepos:
+  - 'https://github.com/kaguptas/argo-test'
+  destinations:
+  - namespace: '*'
+    server: https://kubernetes.default.svc
