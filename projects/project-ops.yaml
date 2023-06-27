@@ -13,6 +13,8 @@ spec:
   destinations:
   - namespace: '*'
     server: https://kubernetes.default.svc
+  - namespace: '*'
+    server: dev-kgupta-worker
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'

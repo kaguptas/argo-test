@@ -10,14 +10,12 @@ spec:
   source:
     repoURL: https://github.com/kaguptas/argo-test
     targetRevision: HEAD
-    # path: stack/overlays/dev
-    # path: env/dev
     path: ./
     directory:
       include: '{stack/overlays/dev/application.yaml,env/dev/application.yaml}'
       recurse: true
   destination:
-    server: https://kubernetes.default.svc
+    server: in-cluster
     namespace: kabirg
   syncPolicy:
     automated:
