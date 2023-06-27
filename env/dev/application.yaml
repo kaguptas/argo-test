@@ -12,7 +12,7 @@ spec:
     targetRevision: HEAD
     path: env/dev
   destination:
-    name: dev-kgupta-worker
+    name: in-cluster
     namespace: kabirg
   syncPolicy:
     automated:
