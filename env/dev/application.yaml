@@ -6,13 +6,13 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: ops
+  project: dev
   source:
     repoURL: https://github.com/kaguptas/argo-test
     targetRevision: HEAD
     path: env/dev
   destination:
-    name: in-cluster
+    name: dev-kgupta-worker
     namespace: kabirg
   syncPolicy:
     automated:
