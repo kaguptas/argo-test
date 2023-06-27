@@ -9,6 +9,7 @@ spec:
   description: Ops Project
   sourceRepos:
   - 'https://github.com/kaguptas/argo-test'
+  - 'https://grafana.github.io/helm-charts'
   destinations:
   - namespace: '*'
     server: https://kubernetes.default.svc

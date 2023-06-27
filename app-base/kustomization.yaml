@@ -1,0 +1,17 @@
+helmGlobals:
+  chartHome: ../charts
+
+# Example of inflating the slmetrics helm chart so kustomize can overlay it
+# This can also be done with a custom argocd plugin
+# Requires the kustomize flags
+# '--enable-helm --load-restrictor LoadRestrictionsNone'
+helmCharts:
+- name: nginx-chart
+  version: 1.1.0
+  releaseName: nginx-chart-release
+  namespace: kabirg
+  valuesInline:
+    replicaCount: 3
+
+resources:
+  - namespace.yaml

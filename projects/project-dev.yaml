@@ -11,4 +11,10 @@ spec:
   - 'https://github.com/kaguptas/argo-test'
   destinations:
   - namespace: '*'
-    name: worker-cluster
+    name: dev-kgupta-worker
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'

@@ -1,25 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: testpod-3
+  name: infra
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: dev
+  project: ops
   source:
     repoURL: https://github.com/kaguptas/argo-test
     targetRevision: HEAD
-    path: appthree/appthreesource
+    path: stack/overlays/dev
   destination:
-    name: worker-cluster
+    name: in-cluster
     namespace: kabirg
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
     retry:
       limit: 1
       backoff:
